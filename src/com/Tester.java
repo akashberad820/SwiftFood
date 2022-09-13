@@ -4,21 +4,12 @@ public class Tester {
 
 	public static void main(String[] args) {
 	
-
-//		Customer customer1 = new Customer();
-//		customer1.displayCustomerDetails();
-		
-		Customer customer1 = new Customer("C1001", "Martin", 9852361233L, "Florida, USA");
+		long[] contacts = {100L, 180L, 1299L};
+		Restaurant restaurant1  = new Restaurant("Hotel Sandeep", contacts, "USA", "4.5");
 	
-		customer1.displayCustomerDetails();
+		restaurant1.viewRestaurantDetails();
 		
-		customer1.setCustomerName("Akash Berad");
-		
-		customer1.displayCustomerDetails();
-		
-		String name = customer1.getCustomerName();
-		System.out.println(name);
-		
+		System.out.println("Hello "+args[0]);
 	}
 
 }
