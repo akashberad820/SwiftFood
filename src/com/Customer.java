@@ -3,17 +3,33 @@ package com;
 public class Customer {
 
 	// Attributes
+	private static int counter;
 	private String customerId;
 	private String customerName;
 	private long contactNumber;
 	private String address;
+	private static float deliveryCharges;
+	
+	static {
+		deliveryCharges = 1.5f;
+		counter = 100;
+	}
 
-	public Customer(String customerId, String customerName, long contactNumber, String address) {
-		this.customerId = customerId;
+	public Customer( String customerName, long contactNumber, String address) {
+		this.customerId = "C"+ ++Customer.counter;
 		this.customerName = customerName;
 		this.contactNumber = contactNumber;
 		this.address = address;
 	}
+	
+	public static int getCounter() {
+		return counter;
+	}
+	
+	public static void setCounter(int counter) {
+		Customer.counter = counter;
+	}
+	
 
 	public String getCustomerId() {
 		return this.customerId;
@@ -60,9 +76,7 @@ public class Customer {
 	public double payBill(double totalPrice, double discountPercentage) {
 		System.out.println("Calculating final amount to be paid . . . . .");
 		double priceAfterDiscount = totalPrice * (1 - (discountPercentage / 100));
-		// System.out.println("Hi "+customerName+", your final bill amount after
-		// discount is : " + (priceAfterDiscount*100)/100.0);
-		return priceAfterDiscount;
+		return priceAfterDiscount+deliveryCharges;
 	}
 
 	// PassByReference
