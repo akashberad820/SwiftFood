@@ -44,4 +44,16 @@ public class Bill {
 		return "Bill [billId=" + billId + ", paymentMode=" + paymentMode + "]";
 	}
 	
+	public boolean generateBill(Order order) {
+		System.out.println("Bill Details \n**************************");
+		System.out.println("Bill ID :"+this.getBillId());
+		System.out.println("Item Ordred :");
+		for(Food food : order.getOrderFoods()){
+			System.out.println(food);
+		}
+		double payableAmount = order.calculateTotalPrice(this.getPaymentMode());
+		System.out.println("Payable Amount : $"+ (payableAmount*100)/100.0);
+		return true;
+	}
+	
 }

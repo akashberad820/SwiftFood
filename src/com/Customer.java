@@ -7,29 +7,28 @@ public class Customer {
 	private String customerId;
 	private String customerName;
 	private long contactNumber;
-	private String address;
+	private Address address;
 	private static float deliveryCharges;
-	
+
 	static {
 		deliveryCharges = 1.5f;
 		counter = 100;
 	}
 
-	public Customer( String customerName, long contactNumber, String address) {
-		this.customerId = "C"+ ++Customer.counter;
+	public Customer(String customerName, long contactNumber, Address address) {
+		this.customerId = "C" + ++Customer.counter;
 		this.customerName = customerName;
 		this.contactNumber = contactNumber;
 		this.address = address;
 	}
-	
+
 	public static int getCounter() {
 		return counter;
 	}
-	
+
 	public static void setCounter(int counter) {
 		Customer.counter = counter;
 	}
-	
 
 	public String getCustomerId() {
 		return this.customerId;
@@ -55,11 +54,11 @@ public class Customer {
 		this.contactNumber = contactNumber;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return this.address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
@@ -76,7 +75,7 @@ public class Customer {
 	public double payBill(double totalPrice, double discountPercentage) {
 		System.out.println("Calculating final amount to be paid . . . . .");
 		double priceAfterDiscount = totalPrice * (1 - (discountPercentage / 100));
-		return priceAfterDiscount+deliveryCharges;
+		return priceAfterDiscount + deliveryCharges;
 	}
 
 	// PassByReference

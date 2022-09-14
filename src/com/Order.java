@@ -10,10 +10,18 @@ public class Order {
 	private double totalPrice;
 	private String status;
 	
+	
 	static {
 		counter = 1111;
 	}
 	
+	
+	
+	public Order(Food[] orderFoods) {
+		this.orderId = ++Order.counter;
+		this.orderFoods = orderFoods;
+	}
+
 	public Order(Food[] orderFoods, double totalPrice, String status) {
 		this.orderId = ++Order.counter;
 		this.orderFoods = orderFoods;
@@ -67,6 +75,16 @@ public class Order {
 				+ totalPrice + ", status=" + status + "]";
 	}
 
+	public double calculateTotalPrice(String paymentMode) {
+	  double price = 0;
+	  for(Food food : this.orderFoods) {
+		  price = price + food.getUnitPrice();
+		  food.setQuantityAvailable(food.getQuantityAvailable()-1);
+	  }
+			return price;
+	}
 
-
+	public int getTotalNoOfOrder() {
+		return this.orderId - 1111;
+	}
 }
